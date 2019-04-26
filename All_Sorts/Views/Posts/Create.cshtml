@@ -1,0 +1,54 @@
+﻿@model All_Sorts.Models.Post
+@{
+    ViewData["Title"] = "Create";
+}
+<center>
+    <h2 style="color:aliceblue">New Post</h2>
+</center>
+<br />
+<hr />
+<br />
+<form asp-action="Create" method="post" enctype="multipart/form-data">
+    <div class="row form-border">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group">
+            <div class="row">
+                <div class="col-md-1">
+                    <label asp-for="UserPost" style="color:aliceblue"></label>
+                </div>
+                <div class="col-sm-6">
+                    <textarea asp-for="UserPost" placeholder="When uploaded image, this becomes your caption..." cols="50" rows="10" class="form-control" id="textpost"></textarea>
+                    <br />
+                    <input type="file" name="files" multiple class=" btn btn-warning form-control" />
+                    <br />
+                    <input type="submit" class="btn btn-primary" value="Post" />
+                    <a asp-action="Index" asp-route-userId="@Model.UserId" class="btn btn-success">
+                        <span class="glyphicon glyphicon-backward"></span> &nbsp; Back To Posts
+                    </a>
+                </div>
+                <div class="form-group">
+                    <label @*asp-for="toFacebook" *@ class="switch">
+                        <input asp-for="toFacebook" type="checkbox" checked />
+                        <span class="slider round"></span>
+                    </label>
+                    <span class="btn btn-default bold"><i class="fab fa-facebook-f"></i></span>
+                    <br />
+                    <label @*asp-for="toFacebook" *@ class="switch">
+                        <input asp-for="toTwitter" type="checkbox" checked />
+                        <span class="slider round"></span>
+                    </label>
+                    <span class="btn btn-default btn-sm bold"><i class="fab fa-twitter"></i></span>
+                    <br />
+                    <label @*asp-for="toFacebook" *@ class="switch">
+                        <input asp-for="toLinkedin" type="checkbox" checked />
+                        <span class="slider round"></span>
+                    </label>
+                    <span class="btn btn-sm btn-default bold"><i class="fab fa-linkedin-in"></i></span>
+                    <br />
+                </div>
+                <span asp-validation-for="UserPost" class="text-danger"></span>
+            </div>
+        </div>
+    </div>
+    <input asp-for="UserId" type="hidden" />
+</form>

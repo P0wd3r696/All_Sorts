@@ -1,0 +1,167 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Wrapping element */
+/* Set some basic padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Carousel */
+.carousel-caption p {
+    font-size: 20px;
+    line-height: 1.4;
+}
+
+/* Make .svg files in the carousel display properly in older browsers */
+.carousel-inner .item img[src$=".svg"] {
+    width: 100%;
+}
+
+/* QR code generator */
+#qrCode {
+    margin: 15px;
+}
+
+/* Hide/rearrange for smaller screens */
+@media screen and (max-width: 767px) {
+    /* Hide captions */
+    .carousel-caption {
+        display: none;
+    }
+}
+.body-ref {
+    background-image: url('../images/Dark-Blue-Background-free-desktop.jpg');
+    background-attachment: fixed;
+    /*bottom: 0px;
+    min-height: 100vh;*/
+    background-size:100%;
+}
+
+.footer {
+    position:absolute;
+    padding-top:5em;
+    width: 100%;
+    bottom: 0px;
+    height: 60px;
+    background-color: rgba(255,255,255,0.0);
+    border: initial;
+    border-radius: 5px;
+    color:aliceblue;
+}
+    .footer > .container {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+html{
+    position:relative;
+    min-height:100%;
+}
+.menu {
+    background-color: rgba(255,255,255,0.0);
+    border: initial;
+    border-radius: 5px;
+}
+.menu {
+    padding: 10px;
+    font-family: sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+    color: antiquewhite;
+}
+.texting{
+    color:mediumorchid;
+}
+.jumbotron {
+    background: rgba(247, 0, 0, 0.2);
+}
+#loose {
+    color: rgba(247, 0, 0, 0.5);
+}
+.menu ul li a {
+    font-family: sans-serif;
+    font-weight: 900;
+    font-size: 20px;
+}
+#lost{
+    color:cadetblue;
+}
+.newTable {
+    border-color: red;
+    border-radius: 20px;
+    background-color:white;
+    padding-bottom:5em;
+}
+.table td {
+    border: none !important;
+}
+#trythis{
+    border-radius:10px;
+    padding-bottom:5em;
+    border-bottom:solid 2px red;
+}
+.bold{
+    position:absolute;
+    
+}
+
+
+/* The switch - the box around the slider */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+.switch input {
+    display: none;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+input:checked + .slider {
+    background-color: #2196F3;
+}
+
+input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+}
+/* Rounded sliders */
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}

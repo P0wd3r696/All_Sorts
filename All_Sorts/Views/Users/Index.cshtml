@@ -1,0 +1,70 @@
+﻿@model IEnumerable<ApplicationUser>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<form asp-controller="Users" asp-action="Index" method="get">
+
+    <br />
+    <h2>Users</h2>
+    <hr />
+    
+
+    <div style="height:60px">
+        <div class="col-sm-3" style="padding-top:20px;">
+            <a asp-controller="Account" asp-action="Register" class="btn btn-primary" style="width:200px;">
+                <span class="glyphicon glyphicon-plus-sign"></span> &nbsp; Add User
+            </a>
+
+        </div>
+        <br />
+        <br />
+        <br />
+        <br />
+
+        <div class="col-sm-9">
+
+        </div>
+
+    </div>
+    <div class="form-group">
+        <table class="table table-condensed table-hover">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(m => m.FirstName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(m => m.LastName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(m => m.Email)
+                </th>
+                <th></th>
+                <th></th>
+                <th></th>
+            </tr>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(m => item.FirstName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(m => item.LastName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(m => item.Email)
+                    </td>
+                    <td>
+                        <a asp-controller="Posts" asp-action="Index" asp-route-userId="@item.Id">
+                            <span class="glyphicon glyphicon-book"></span>&nbsp; View User Posts
+                        </a>
+                    </td>
+                </tr>
+
+            }
+        </table>
+    </div>
+
+</form>
+

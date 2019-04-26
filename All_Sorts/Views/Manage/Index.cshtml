@@ -1,0 +1,51 @@
+﻿@model IndexViewModel
+@using All_Sorts.Models
+@{
+    ViewData["Title"] = "Profile";
+    ViewData.AddActivePage(ManageNavPages.Index);
+}
+
+<h4 style="color:aliceblue">@ViewData["Title"]</h4>
+@Html.Partial("_StatusMessage", Model.StatusMessage)
+<div class="row">
+    <div class="col-md-6">
+        <form method="post">
+            <input type="hidden" asp-for="Email" />
+            <div asp-validation-summary="All" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Email" style="color:aliceblue"></label>
+                <input asp-for="Email" class="form-control" disabled />
+            </div>
+            <div class="form-group">
+                <label asp-for="FirstName" style="color:aliceblue"></label>
+                <input asp-for="FirstName" class="form-control" />
+                <span asp-validation-for="FirstName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LastName" style="color:aliceblue"></label>
+                <input asp-for="LastName" class="form-control" />
+                <span asp-validation-for="LastName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PhoneNumber" style="color:aliceblue"></label>
+                <input asp-for="PhoneNumber" class="form-control" />
+                <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FacebookPageId" style="color:aliceblue"></label>
+                <input asp-for="FacebookPageId" class="form-control" />
+                <span asp-validation-for="FacebookPageId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LinkedinPageId" style="color:aliceblue"></label>
+                <input asp-for="LinkedinPageId" class="form-control" />
+                <span asp-validation-for="LinkedinPageId" class="text-danger"></span>
+            </div>
+            <button type="submit" class="btn btn-primary">Save</button>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @await Html.PartialAsync("_ValidationScriptsPartial")
+}

@@ -1,0 +1,31 @@
+﻿@model All_Sorts.Models.Post
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h2>Edit Post</h2>
+<br />
+<br />
+<hr />
+
+<form asp-action="Edit">
+    <input type="hidden" asp-for="Id" />
+    <input type="hidden" asp-for="UserId" />
+    <div class="row form-border">
+        <div class="form-group">
+            <div class="row">
+                <div class="col-md-1">
+                    <label asp-for="UserPost"></label>
+                </div>
+                <div class="col-sm-4">
+                    <input asp-for="UserPost" class="form-control" />
+                    <br />
+                    <input type="submit" class="btn btn-primary" value="Update" />
+                    <a asp-action="Index" class="btn btn-success">
+                        <i class="fas fa-undo-alt"></i> &nbsp; Back To Posts
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

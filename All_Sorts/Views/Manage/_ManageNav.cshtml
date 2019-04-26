@@ -1,0 +1,20 @@
+﻿@using All_Sorts.Views.Manage
+@inject SignInManager<ApplicationUser> SignInManager
+@{
+    var hasExternalLogins = (await SignInManager.GetExternalAuthenticationSchemesAsync()).Any();
+}
+
+
+<a class="form-control btn btn-success " asp-action="Index">Profile</a>
+<br />
+<br />
+<a class="form-control btn btn-success" asp-action="ChangePassword">Password</a>
+<br />
+<br />
+@if (hasExternalLogins)
+{
+    <a class="form-control btn btn-success" asp-action="ExternalLogins">External logins</a>
+}
+@*<li class="@ManageNavPages.TwoFactorAuthenticationNavClass(ViewContext)"><a asp-action="TwoFactorAuthentication">Two-factor authentication</a></li>*@
+
+

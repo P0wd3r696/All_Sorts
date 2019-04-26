@@ -1,0 +1,107 @@
+﻿@model All_Sorts.ViewModel.PostAndCustomerViewModel
+@using All_Sorts.Utility
+@{
+    ViewData["Title"] = "Index";
+}
+
+<br />
+<center>
+    <h2 style="color:aliceblue">Your Posts</h2>
+</center>
+<br />
+
+<div class="col-sm-6">
+    @* Display users and their details*@
+    <div class="row">
+        @*<div class="col-sm-4">
+            <label style="color:aliceblue" class="control-label">Hello</label>
+            <input asp-for="UserObj.FirstName" disabled class="form-control" />
+        </div>*@
+        <br />
+        <div class="col-sm-4">
+            <a asp-action="Create" asp-route-userId="@Model.UserObj.Id" class="btn btn-primary">Create Post</a>
+        </div>
+    </div>
+    @*<div class="row">
+            <div class="col-sm-4">
+                <label asp-for="UserObj.LastName" class="control-label"></label>
+            </div>
+            <div class="col-sm-8" style="padding-bottom:5px">
+                <input asp-for="UserObj.LastName" disabled class="form-control" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-4">
+                <label asp-for="UserObj.Email" class="control-label"></label>
+            </div>
+            <div class="col-sm-8" style="padding-bottom:5px">
+                <input asp-for="UserObj.Email" disabled class="form-control" />
+            </div>
+        </div>*@
+</div>
+<br />
+
+<br />
+<br />
+<br />
+
+@if (Model.Posts.Count() == 0)
+{
+    <div class="text-primary">
+        No Posts yet
+    </div>
+
+}
+else
+{
+<div class="col-sm-8 newTable">
+    <table class="table table-condensed table-hover">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(m => m.Posts.FirstOrDefault().UserPost)
+            </th>
+            <th>
+                @Html.DisplayNameFor(m => m.Posts.FirstOrDefault().DatePosted)
+            </th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+        </tr>
+        @foreach (var item in Model.Posts)
+        {
+            if (item.UserImage == null)
+            {
+                <tr>
+                    <td id="trythis">
+                        @Html.DisplayFor(m => item.UserPost)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(m => item.DatePosted)
+                    </td>
+                    <td>
+                        @Html.Partial("_TableButtonPartial", item.Id)
+                    </td>
+                </tr>
+            }
+            else
+            {
+                <tr>
+                    <td>
+                        <img src="@Html.DisplayFor(m => item.UserImage)" style="width:200px; height:200px;" />
+                    </td>
+                    <td>
+                        @Html.DisplayFor(m => item.DatePosted)
+                    </td>
+                    <td>
+                        @Html.Partial("_TableButtonPartial", item.Id)
+                    </td>
+                </tr>
+            }
+        }
+    </table>
+</div>
+}

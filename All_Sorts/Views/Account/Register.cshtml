@@ -1,0 +1,83 @@
+﻿@model RegisterViewModel
+@using All_Sorts.Utility
+@{
+    ViewData["Title"] = "Register";
+}
+
+<h2 style="color:aliceblue">@ViewData["Title"]</h2>
+<div class="col-md-4">
+    <section>
+        <div class="row">
+
+            <div class="jumbotron">
+                <form asp-route-returnUrl="@ViewData["ReturnUrl"]" method="post">
+                    <h4 style="color:aliceblue">Create a new account.</h4>
+                    <hr />
+                    <div asp-validation-summary="All" class="text-danger"></div>
+                    <div class="form-group">
+                        <label asp-for="FirstName" style="color:aliceblue"></label>
+                        <input asp-for="FirstName" class="form-control" />
+                        <span asp-validation-for="FirstName" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="LastName" style="color:aliceblue"></label>
+                        <input asp-for="LastName" class="form-control" />
+                        <span asp-validation-for="LastName" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Email" style="color:aliceblue"></label>
+                        <input asp-for="Email" class="form-control" />
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Password" style="color:aliceblue"></label>
+                        <input asp-for="Password" class="form-control" />
+                        <span asp-validation-for="Password" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="ConfirmPassword" style="color:aliceblue"></label>
+                        <input asp-for="ConfirmPassword" class="form-control" />
+                        <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+                    </div>
+
+                    @if (User.IsInRole(SD.AdminEndUser))
+                    {
+                        <div class="form-group">
+                            <label asp-for="isAdmin"></label>
+                            <input asp-for="isAdmin" type="checkbox" />
+                        </div>
+
+                    }
+                    <div class="form-group">
+                        @if (User.IsInRole(SD.AdminEndUser))
+                        {
+                            <button type="submit" class="btn btn-primary">Add User</button>
+
+                        }
+                        else
+                        {
+                            <button type="submit" class="btn btn-primary">Register</button>
+                        }
+                    </div>
+
+
+                </form>
+            </div>
+        </div>
+</section>
+</div>
+
+<div class="col-md-4 col-md-offset-2">
+    <section>
+
+        <img src="~/images/all_sorts_ID-750px_750.png" height="350" />
+
+    </section>
+</div>
+
+
+@section Scripts {
+    @await Html.PartialAsync("_ValidationScriptsPartial")
+}
+
+
